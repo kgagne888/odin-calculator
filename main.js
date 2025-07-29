@@ -23,3 +23,25 @@ const operate = function(num1, operator, num2) {
     }
     return operators[operator];
 }
+
+// page elements that we want to adjust 
+const digits = document.querySelectorAll('.btn.digit'); 
+const input = document.querySelector('.input p');
+
+// update the input in screen when a digit is clicked
+digits.forEach(digit => digit.addEventListener("click", () => {
+    let val;
+    switch (digit.textContent) {
+        case ("π"):
+            val = Math.PI;
+            break;
+        case ("e"): 
+            val = Math.E;
+            break;
+        default: 
+            val = digit.textContent;
+            break;
+    }
+    num2 = val; 
+    input.textContent = val;
+}));
