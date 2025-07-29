@@ -76,8 +76,16 @@ body {
     cursor: pointer;
 }
 
-.btn:active {
-    background-color: pink;
+.btn.digit:active {
+    background-color: #ffaebc;
+}
+
+.btn.operator:active {
+    background-color: lightblue;
+}
+
+.btn.action:active {
+    background-color: #FFF44F;
 }
 
 .screen p {
