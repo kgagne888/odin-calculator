@@ -32,3 +32,11 @@ for (let btn of actionButton) {
         actions[btn.textContent]();
     })
 }
+
+const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
+const multiply = (a, b) => a * b; 
+const divide = (a, b) => a / b; 
+const sqrt = (a) => Math.sqrt(a);
+const power = (a, b) => a ** b;
+const remainder = (a, b) => a % b;
