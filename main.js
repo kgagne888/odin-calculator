@@ -9,6 +9,7 @@ const remainder = (a, b) => a % b;
 
 // variables for 3 parts of the equation 
 let num1 = null, operator = null, num2 = null; 
+let isSecondNumber = false;
 
 // page elements that we want to adjust 
 const digits = document.querySelectorAll('.btn.digit'); 
@@ -24,9 +25,13 @@ digits.forEach(digit => digit.addEventListener("click", () => {
         case ("π"): val = Math.PI; break;
         case ("e"): val = Math.E; break;
         default: val = digit.textContent; break;
-    }
-    num2 = parseFloat(val); 
-    input.textContent = val;
+    };
+    if (isSecondNumber) { 
+        input.textContent = null;
+        isSecondNumber = false;
+    };
+    input.textContent += val;
+    num2 = parseFloat(input.textContent);
 }));
 
 // create a function operate that takes two numbers and calls on one of the operator button functions
@@ -60,8 +65,9 @@ actions.forEach(action => action.addEventListener("click", () => {
 }));
 
 operatorBtns.forEach(btn => btn.addEventListener("click", () => {
+    isSecondNumber = true;
+    num1 = num2;
     operator = btn.textContent; 
-    num1 = num2; 
     num2 = null;
 }));
 
