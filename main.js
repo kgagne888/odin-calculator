@@ -73,6 +73,17 @@ const actionsMap = {
     "=": () => operate(),
     "⌫": () => backspace(),
     "√": () => operateSqrt(),
+    "CE": () => {
+        num2 = null; 
+        input.textContent = null;
+    }, 
+    "AC": () => {
+        num1 = null, 
+        num2 = null; 
+        operator = null; 
+        input.textContent = null; 
+        equation.textContent = null;
+    }
 }
 
 operatorBtns.forEach(btn => btn.addEventListener("click", () => {
@@ -86,6 +97,6 @@ actions.forEach(action => action.addEventListener("click", () => {
     actionsMap[action.textContent]();
 }));
 
-
-
-
+const clear = () => {
+    input.textContent = null;
+}
