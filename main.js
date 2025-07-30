@@ -55,9 +55,15 @@ const operate = () => {
     return total;
 }
 
+const backspace = () => {
+    num2 = parseFloat(num2.toString().slice(0, -1)) || 0;
+    input.textContent = num2;
+};
+
 // actions object
 const actionsMap = {
     "=": () => operate(),
+    "⌫": () => backspace(),
 }
 
 actions.forEach(action => action.addEventListener("click", () => {
