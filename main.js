@@ -44,7 +44,6 @@ const operate = () => {
         "−": () => subtract(a, b), 
         "×": () => multiply(a, b), 
         "÷": () => divide(a, b), 
-        "√": () => sqrt(a), 
         "^": () => power(a, b), 
         "%": () => remainder(a, b),
     }
@@ -53,6 +52,15 @@ const operate = () => {
     equation.textContent = `${num1} ${operator} ${num2}`;
     num2 = total;
     return total;
+}
+
+const operateSqrt = () => {
+    const b = parseFloat(input.textContent);
+    const total = sqrt(b).toString();
+    input.textContent = total;
+    num2 = total;
+    num1 = null;
+    equation.textContent = `√${num2}`;
 }
 
 const backspace = () => {
@@ -64,11 +72,8 @@ const backspace = () => {
 const actionsMap = {
     "=": () => operate(),
     "⌫": () => backspace(),
+    "√": () => operateSqrt(),
 }
-
-actions.forEach(action => action.addEventListener("click", () => {
-    actionsMap[action.textContent]();
-}));
 
 operatorBtns.forEach(btn => btn.addEventListener("click", () => {
     isSecondNumber = true;
@@ -76,5 +81,11 @@ operatorBtns.forEach(btn => btn.addEventListener("click", () => {
     operator = btn.textContent; 
     num2 = null;
 }));
+
+actions.forEach(action => action.addEventListener("click", () => {
+    actionsMap[action.textContent]();
+}));
+
+
 
 
